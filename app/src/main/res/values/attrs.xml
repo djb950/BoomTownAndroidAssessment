@@ -2,4 +2,6 @@
 <resources>
     <attr name="recyclerViewRowBackgroundColor" format="reference"/>
     <attr name="recyclerViewTextColor" format="reference"/>
+    <attr name="progressBarColor" format="reference"/>
+
 </resources>

@@ -1,8 +1,6 @@
 package com.example.boomtownstarwars;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +10,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -44,7 +40,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             fetchData();
         }
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.recycler_view_row, parent, false);
+        View view = inflater.inflate(R.layout.combined_layout, parent, false);
         return new RecyclerViewHolder(view);
     }
 
@@ -66,6 +62,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     toast.show();
                 }
             });
+            holder.progressBar.setVisibility(View.GONE);
         }
     }
 
@@ -88,6 +85,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
 
             // initialize views
+            progressBar = itemView.findViewById(R.id.progressBar);
             name = itemView.findViewById(R.id.name_text);
             birthYear = itemView.findViewById(R.id.birth_year_text);
             height = itemView.findViewById(R.id.height_text);
